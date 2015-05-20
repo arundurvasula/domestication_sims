@@ -1,0 +1,37 @@
+#MUTATION TYPES
+m2 0.5 f 0.0 / neutral
+m1 0.5 e -0.000025 / selection!
+m3 0.5 f 0.0 / noncoding
+
+#MUTATION RATE
+6e-6 
+
+#GENOMIC ELEMENT TYPES
+g1 m1 2.0 m2 1.0 / exon
+g2 m2 1.0 / intron
+g3 m3 1.0 / nonconding
+
+#CHROMOSOME ORGANIZATION
+g1 1 201 /exon
+g2 201 1201 /intron
+g1 1201 1401 / exon
+g2 1401 2401 /intron
+g1 2401 2601 / exon  
+g2 2601 3601 / intron
+g1 3601 3801 / exon
+g3 3801 103801 / noncoding region up to 0.1 cM (1e6 with c = 1e-7)
+
+#RECOMBINATION RATE
+103801 1.2e-6
+
+#GENERATIONS
+15150
+
+#OUTPUT
+/15150 R p1 13
+15150 T m3
+#DEMOGRAPHY AND STRUCTURE
+1 P p1 1500 /original teo pop
+/15000 P p2 75 p1 /maize split after burn in (10*N_e)
+/ need exponential growth from 7 to 450 over 15 gens
+/15150 N p2 4500 / ending maize pop
